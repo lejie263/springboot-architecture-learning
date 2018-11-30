@@ -20,6 +20,6 @@ import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 public class Startup {
     public static void main(String[] args) {
         SpringApplication.run(Startup.class, args);
-        log.info("fuguojie-registry start success.");
+        log.info("fuguojie-gateway start success.");
     }
 }

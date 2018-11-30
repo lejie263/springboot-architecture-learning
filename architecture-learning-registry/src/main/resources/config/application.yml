@@ -1,13 +1,12 @@
 spring:
   application:
-    name: fuguojie-registry
+    name: fuguojie-gateway
   main:
     banner-mode: log
   security:
     user:
       name: admin
       password: 135Bnm246
-
 eureka:
   instance:
     ip-address: ${spring.cloud.client.ipaddress}
