@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: fuguojie-registry
+  main:
+    banner-mode: log
+  security:
+    user:
+      name: admin
+      password: 135Bnm246
+
+eureka:
+  instance:
+    ip-address: ${spring.cloud.client.ipaddress}
+    prefer-ip-address: true
+    instance-id: ${eureka.instance.ip-address}:${server.port}
+    lease-expiration-duration-in-seconds: 90
+    lease-renewal-interval-in-seconds: 30
+  client:
+    fetchRegistry: false
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+ribbon:
+  ConnectTimeout: 10000
+  ReadTimeout: 60000
+  MaxAutoRetries: 0
+  MaxAutoRetriesNextServer: 1

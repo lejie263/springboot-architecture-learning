@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout charset="UTF-8">
+                <Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%t] L%L [%c{1.}.%M] %m%n</Pattern>
+            </PatternLayout>
+        </Console>
+        <RollingFile name="RollingFile"
+                     fileName="logs/fuguojie-registry.log"
+                     filePattern="logs/fuguojie-registry-%d{yyyyMMddHHmmss}.log.zip">
+            <PatternLayout charset="UTF-8">
+                <Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%t] L%L [%c{1.}.%M] %m%n</Pattern>
+            </PatternLayout>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="20MB"/>
+            </Policies>
+        </RollingFile>
+        <RollingFile name="ErrorRollingFile"
+                     fileName="logs/fuguojie-registry-error.log"
+                     filePattern="logs/fuguojie-registry-error-%d{yyyyMMddHHmmss}.log.zip">
+            <PatternLayout charset="UTF-8">
+                <Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%t] L%L [%c{1.}.%M] %m%n</Pattern>
+            </PatternLayout>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="20MB"/>
+            </Policies>
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <Logger name="org.springframework" level="Info"/>
+        <Logger name="org.mybatis" level="Info"/>
+        <Logger name="com.baomidou" level="Info"/>
+        <Logger name="io.netty" level="Info"/>
+        <Logger name="io.lettuce" level="Info"/>
+        <Logger name="org.apache" level="Info"/>
+        <Logger name="com.netflix.discovery" level="Info"/>
+        <Logger name="org.hibernate" level="Info"/>
+        <Root level="ALL">
+            <AppenderRef ref="Console"  level="info"/>
+            <AppenderRef ref="RollingFile" level="info" />
+            <AppenderRef ref="ErrorRollingFile" level="Error" />
+        </Root>
+    </Loggers>
+</Configuration>

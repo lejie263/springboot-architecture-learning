@@ -1,0 +1,24 @@
+server:
+  port: 9001
+
+  servlet:
+    session:
+      timeout: 1m
+
+#### Eureka Server集群配置
+# 除本实例外其他的Euerka Server URL，如果有多个，以逗号分隔
+#
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@${eureka.instance.instance-id}/eureka/
+      #http://${eureka.instance.instance-id}/eureka/
+
+      #register-with-eureka: true
+
+    #### Eureka Server单机配置
+    registerWithEureka: false
+  server:
+    enable-self-preservation: false
+logging:
+  config: classpath:config/log4j2.xml

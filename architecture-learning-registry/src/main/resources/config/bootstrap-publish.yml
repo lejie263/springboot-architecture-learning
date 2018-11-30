@@ -1,0 +1,6 @@
+# IP地址前缀，例如："192.168."，"10.0."，"192.168.1."
+# 用于多（虚拟）网卡环境中，Spring Cloud不能选取期望的网卡IP地址作为Eureka实例IP时使用
+#spring:
+#  cloud:
+#    inetutils:
+#      preferred-networks: 192.168.199.
